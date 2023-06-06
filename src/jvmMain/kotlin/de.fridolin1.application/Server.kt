@@ -17,9 +17,6 @@ fun HTML.index() {
         div {
             +"Hello from Ktor"
         }
-        div {
-            id = "root"
-        }
         script(src = "/static/vplanplus.js") {}
     }
 }
