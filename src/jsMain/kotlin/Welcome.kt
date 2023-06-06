@@ -6,6 +6,8 @@ import emotion.react.css
 import react.dom.html.InputType
 import react.dom.html.ReactHTML.div
 import react.dom.html.ReactHTML.input
+import react.dom.html.ReactHTML.li
+import react.dom.html.ReactHTML.ul
 import react.useState
 
 external interface WelcomeProps : Props {
@@ -32,6 +34,22 @@ val Welcome = FC<WelcomeProps> { props ->
         value = name
         onChange = { event ->
             name = event.target.value
+        }
+    }
+    ul {
+        fun children(): ArrayList<String> {
+            val children = ArrayList<String>()
+            children.add("JavaScript/JS")
+            children.add("Java")
+            children.add("Kotlin")
+            children.add("Kotlin/JS")
+            return children
+        }
+        for (child in children()) {
+            if (child.contains(name))
+                li {
+                    +child
+                }
         }
     }
 }
